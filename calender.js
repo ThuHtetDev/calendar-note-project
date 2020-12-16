@@ -61,14 +61,15 @@ function getDatesBetweentwo(date1,date2){
             shortDay: "Sun", fullDay: "Sunday"
         }
     ];
+    content += "<div style='text-align:center;'><button id='calPrev' disable>Previous</button> | <button id='calNext'>Next</button></div>";
     for(let i=0; i<dates.length; i++){
         lastDate = dates[i];
         console.log(lastDate.getDate());
         firstDate = new Date( dates[i].getFullYear(), dates[i].getMonth(), 1);
-        content += "<div class='calendar-"+i+ "'><h2>";
+        content += "<div class='hd-ttl calendar-"+i+ "'><h2>";
         content += firstDate.toString().split(" ")[1];
         content += "-"+dates[i].getFullYear();
-        content += "</h2></div>";
+        content += "</h2>";
         content += "<table>";
         content += "<thead>";
         Days.map(item=>{
@@ -100,10 +101,14 @@ function getDatesBetweentwo(date1,date2){
         content += "</tbody>";
         content += "</thead>";
         content += "</table>";
+        content += "</div>";
     }
     return content;
 }
 
+function calNext(){
+    
+}
 
 let items = getDatesBetweentwo("2020/01/01","2021/01/01");
 document.getElementById('calender').innerHTML = items;
